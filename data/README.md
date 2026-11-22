@@ -21,5 +21,6 @@ No personal data are included. OpenStreetMap address and name tags were removed 
 | `ibb/ibb_dam_rainfall_daily.xlsx` | Daily rainfall at 10 Istanbul water-supply dams, 2011–2024 | Istanbul Metropolitan Municipality open data portal, data.ibb.gov.tr (dataset "İstanbul Barajlarına Düşen Yağış ve Günlük Tüketim Verileri") | IBB Open Data Licence |
 | `ibb/akom_awos_stations.csv` | Names and coordinates of AKOM automatic weather stations | data.ibb.gov.tr (dataset "Meteoroloji Gözlem İstasyon Konumları") | IBB Open Data Licence |
 | `raw/ayamama_buildings_ms_gapfill.geojson` | 71,106 building footprints in the Ayamama box that do not overlap OSM (68,159 used after the size filter) | Microsoft Global ML Building Footprints, release 2026-02-03 | ODbL 1.0 |
+| `events/era5_tp_2026-10-10_20.nc` | ERA5 hourly precipitation, 10–20 October 2026, same box as `era5_raw` (kept apart: partial year) | Copernicus Climate Data Store, downloaded 22 Nov 2026 | Copernicus licence |
 | `events/istanbul_2026-10_stations.csv` | Rainfall reported for 13–15 October 2026 | Press reports of AKOM / MGM figures (sources in the file) | Cited facts |
 | `external/` (not in the repository) | MGM hourly gauges and Istanbul radar, September 2009 | MGM, supplied for research | Not redistributed; only derived tables are published |

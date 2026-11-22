@@ -5,8 +5,8 @@ Answers two review points:
   1. For the 7-9 September 2009 event, what did ERA5 give on the event days
      (not the 2009 annual maximum) in the cell of each station?
   2. Which stations share an ERA5 cell (independent comparisons)?
-Optionally repeats the check for the 13-15 October 2026 event once the 2026
-ERA5 file has been downloaded (python scripts/download_era5.py --start 2026 --end 2026).
+Repeats the check for the 13-15 October 2026 event with ERA5 for 10-20 October 2026
+(data/events/era5_tp_2026-10-10_20.nc, downloaded from the Copernicus CDS).
 
 Daily totals are given for two day definitions:
   * UTC day 00-24 UTC

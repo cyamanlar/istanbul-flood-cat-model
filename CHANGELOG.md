@@ -14,7 +14,8 @@ Response to an expert review of v0.2. All data used are official or open sources
 ### Exposure and validation
 * **OSM gap fill in the Ayamama basin** with 68,159 Microsoft Global ML Building Footprints (ODbL) that do not overlap OSM (`scripts/gapfill_buildings_ms.py`). OSM held about one third of the buildings in the box.
 * **Point-by-point 2009 validation** at the five survey locations (Nominatim-geocoded; `outputs/building_level/validation_2009_pointwise.csv`): MAE 0.40 m, bias −0.38 m for the median depth at four locations; the Çobançeşme culvert backwater is reported as not representable. Channel stage and building depth are reported separately.
-* **2009 is now labelled the calibration event.** Independent validation with the 13–15 October 2026 event is prepared (`data/events/istanbul_2026-10_stations.csv`) and waits for ERA5 October 2026 data from CDS.
+* **2009 is now labelled the calibration event.**
+* **Independent hazard check with 13–15 October 2026** (ERA5 10–20 Oct 2026 downloaded from CDS, `data/events/era5_tp_2026-10-10_20.nc`; `scripts/event_2026_return_period.py`): reported totals are 1.2–3.2× ERA5; ERA5 has its largest day since 1950 in one cell; model return periods 20–115 years by cell; portfolio loss about EUR 14 m (about 1-in-70). The reported 186 mm/24 h would be a 650–770-year value in the model at the Bosphorus, which points to a light tail there. Depth validation for 2026 still needs AKOM and Sentinel-1 data.
 
 ### Uncertainty
 * **40-run epistemic ensemble** (`scripts/epistemic_uncertainty.py`): central values and 90 % ranges, reported separately from the Monte Carlo error of the 50,000-year run.

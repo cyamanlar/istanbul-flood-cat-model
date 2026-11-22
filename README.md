@@ -60,6 +60,10 @@ Reference-run EP curve: 1-in-10 3.4, 1-in-50 12.1, 1-in-100 16.7, 1-in-200 21.9,
 
 On raw ERA5 1950–2025 (`scripts/extreme_value_diagnostics.py`): the 90 % confidence interval of the GEV 100-year daily rainfall is about **±15 %** per cell (bootstrap, 12–20 %); a **Mann-Kendall test finds no trend** in the annual maxima (2 of 32 cells significant at 5 %, about the false-positive rate; regional mean p = 0.38), unlike the rising station extremes reported for Istanbul, which ERA5 may smooth out; a **peaks-over-threshold GPD fit** gives 100-year levels within −15 % to +12 % of the GEV (median ratio 0.98).
 
+### Finding 1b: October 2026, an event not used in calibration
+
+ERA5 caught the 13–15 October 2026 storm far better than 2009: reported station totals are **1.2–3.2× ERA5** in the same cells (2009: up to ×9.8), and ERA5's 88 mm day in the 41.25N 28.75E cell is the **largest in that cell since 1950** (`scripts/era5_event_check.py`, `scripts/event_2026_return_period.py`). With the v0.3 factors, the model gives this ERA5 field return periods of 20–115 years by cell, and the illustrative portfolio would lose about EUR 14 m (about 1-in-70 years on the reference curve). But the 186 mm reported for 24 hours (MGM statement) would be a 650–770-year value at the Bosphorus cells in the model. Part of that gap is expected, because the wettest of dozens of gauges is rarer than a single point; part suggests the tail on the Bosphorus is still too light. ERA5's error depends on the storm type: long, organised systems (2026) are resolved much better than stationary convective cells (2009).
+
 ### Finding 2: storms are smaller than the v0.2 footprint assumed
 
 The 2009 storm in the MGM Istanbul radar has a spatial e-folding distance of about **22 km** (`scripts/radar_2009_footprint.py`). Daily rainfall at the dam gauges decorrelates over about **51 km**, and their annual maxima over about **34 km**. v0.3 uses **40 km** (v0.2: 60 km) and tests 20–60 km.
@@ -102,7 +106,8 @@ The model is fit for **portfolio steering and scenario analysis**. It is not yet
 | ERA5 on single events | Tested, weak | MGM hourly 2009: ratios 0.1–6.3; core misplaced |
 | Spatial dependence | Partly validated | Radar 2009 (22 km), gauges (34–51 km) |
 | 2009 rainfall footprint | Validated | 18 stations + MGM hourly gauges |
-| Rainfall → depth | Calibrated on 2009 only | Point-wise MAE 0.40 m at 4 sites; independent event (Oct 2026) pending |
+| Rainfall → depth | Calibrated on 2009 only | Point-wise MAE 0.40 m at 4 sites; depth check for Oct 2026 needs AKOM and Sentinel-1 data |
+| Hazard on an independent event | Tested | Oct 2026: ERA5 within 1.2–3.2× of reported totals; model return periods 20–115 yr (ERA5 field) |
 | Depth → damage | Not validated for Turkey | JRC Europe curves |
 | Exposure | Illustrative portfolio; OSM gaps filled in the Ayamama basin only | Microsoft footprints |
 
@@ -203,7 +208,8 @@ Data sources and licences are listed in [`data/README.md`](data/README.md).
 
 Next steps:
 
-- [ ] Independent validation with the 13–15 October 2026 event (ERA5 via CDS, AKOM gauges, Sentinel-1 flood extent)
+- [x] October 2026 event: ERA5 hazard check (done in v0.3)
+- [ ] October 2026 event: AKOM hourly gauges and Sentinel-1 flood extent for a depth check
 - [ ] Quantile mapping by season and duration with full MGM and AKOM hourly series; IDF curves for 1–24 h
 - [ ] Projections from EURO-CORDEX and MGM, matched to SSP and period
 - [ ] Areal reduction factor for catchment rainfall

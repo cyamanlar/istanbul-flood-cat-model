@@ -47,7 +47,9 @@ Under this model's assumption of +7 % rainfall per °C, the AAL of the example p
 
 **Extreme-value checks.** The bootstrap 90 % interval of the GEV 100-year daily rainfall is about ±15 % per cell. A Mann-Kendall test finds no trend in ERA5 annual maxima (2 of 32 cells significant at 5 %; regional mean p = 0.38), unlike the rising station extremes reported for Istanbul (Şen and Aksu, 2021), which ERA5 may smooth out. A peaks-over-threshold GPD fit gives 100-year levels within −15 % to +12 % of the GEV (median ratio 0.98). Losses throughout are insured losses of the illustrative portfolio after the deductible, not economic losses.
 
-**Still open.** Independent validation with the 13–15 October 2026 event (ERA5 for October 2026 from CDS, AKOM gauges, Sentinel-1 flood extent); quantile mapping by season and duration with full hourly MGM and AKOM series; hydraulic routing (SWMM and HEC-RAS 2D) in Ayamama; projections from EURO-CORDEX and MGM; local damage curves.
+**Independent event: October 2026.** ERA5 caught the 13–15 October 2026 storm far better than 2009: reported station totals are 1.2–3.2 times ERA5 in the same cells, and ERA5 has its largest day since 1950 in the 41.25N 28.75E cell. With the v0.3 factors the model gives this field return periods of 20–115 years by cell, and the illustrative portfolio would lose about EUR 14 m (about 1-in-70 years). The 186 mm reported for 24 hours would be a 650–770-year value at the Bosphorus cells; the wettest of dozens of gauges is rarer than a single point, but the gap also suggests the tail there is too light. ERA5 errors depend on storm type: organised systems are resolved much better than stationary convective cells.
+
+**Still open.** Depth validation for October 2026 (AKOM gauges, Sentinel-1 flood extent); quantile mapping by season and duration with full hourly MGM and AKOM series; hydraulic routing (SWMM and HEC-RAS 2D) in Ayamama; projections from EURO-CORDEX and MGM; local damage curves.
 
 
 ## 1. Introduction
