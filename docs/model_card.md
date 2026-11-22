@@ -30,7 +30,7 @@ This is a transparent, open probabilistic flood model for Istanbul property expo
 | Climate scaling | +7 % per °C (stress test) | Not a projection; sub-daily extremes may scale faster or slower |
 
 ## Validation status
-See README (Validation status) and CHANGELOG. Summary: ERA5 factors are estimated from matched-period gauges; spatial correlation is checked against radar and gauges; the 2009 event is the calibration event (point-wise MAE 0.40 m at four sites); independent validation with October 2026 is pending. Damage curves are not validated locally.
+See README (Validation status) and CHANGELOG. Summary: ERA5 factors are estimated from matched-period gauges; spatial correlation is checked against radar and gauges; the 2009 event is the calibration event (point-wise MAE 0.40 m at four sites); an independent hazard check with October 2026 is done (ERA5 1.4–3.3× below the İBB/AKOM station totals; model return periods 20–115 years); depth validation for October 2026 is pending. Damage curves are not validated locally.
 
 ## Headline results (illustrative EUR 5 bn portfolio)
 Central (P50) and 90 % range from a 40-run epistemic ensemble: AAL EUR 1.6 m (0.9–3.9), 1-in-200 EUR 34 m (24–49), TVaR 99.5 % EUR 53 m (40–77). Monte Carlo error of 50,000 years: ±0.8 m on the 1-in-200 loss.

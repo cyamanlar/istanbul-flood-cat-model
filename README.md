@@ -28,7 +28,7 @@ The page (`docs/simulator/index.html`) is self-contained and also opens locally 
 
 ## Why this matters
 
-Istanbul is a city of about 16 million people on steep coastal terrain. Short convective storms overwhelm drainage within an hour. On 9 September 2009 the Ayamama stream flooded İkitelli and the districts downstream; a gauge-driven hydrological model put the peak above the 500-year flood (Yucel, 2015). On 14 October 2026 up to 273 mm fell around the Bosphorus and the northern districts, with 1,277 flooding reports in one day. Flood sits in private property books, and Solvency II calibrates capital to the 1-in-200-year loss. EIOPA also asks insurers to test climate scenarios in the ORSA.
+Istanbul is a city of about 16 million people on steep coastal terrain. Short convective storms overwhelm drainage within an hour. On 9 September 2009 the Ayamama stream flooded İkitelli and the districts downstream; a gauge-driven hydrological model put the peak above the 500-year flood (Yucel, 2015). On 13–15 October 2026 up to 277 mm fell around the Bosphorus and the northern districts (İBB/AKOM; MGM reports 186 mm in 24 hours), and the Istanbul Governor's Office logged 1,277 flooding reports on 14 October alone. Flood sits in private property books, and Solvency II calibrates capital to the 1-in-200-year loss. EIOPA also asks insurers to test climate scenarios in the ORSA.
 
 ## Key results (v0.3)
 
@@ -62,7 +62,7 @@ On raw ERA5 1950–2025 (`scripts/extreme_value_diagnostics.py`): the 90 % confi
 
 ### Finding 1b: October 2026, an event not used in calibration
 
-ERA5 caught the 13–15 October 2026 storm far better than 2009: reported station totals are **1.2–3.2× ERA5** in the same cells (2009: up to ×9.8), and ERA5's 88 mm day in the 41.25N 28.75E cell is the **largest in that cell since 1950** (`scripts/era5_event_check.py`, `scripts/event_2026_return_period.py`). With the v0.3 factors, the model gives this ERA5 field return periods of 20–115 years by cell, and the illustrative portfolio would lose about EUR 14 m (about 1-in-70 years on the reference curve). But the 186 mm reported for 24 hours (MGM statement) would be a 650–770-year value at the Bosphorus cells in the model. Part of that gap is expected, because the wettest of dozens of gauges is rarer than a single point; part suggests the tail on the Bosphorus is still too light. ERA5's error depends on the storm type: long, organised systems (2026) are resolved much better than stationary convective cells (2009).
+ERA5 caught the 13–15 October 2026 storm far better than 2009: reported station totals (İBB/AKOM, 10 stations) are **1.4–3.3× ERA5** in the same cells (2009: up to ×9.8), and ERA5's 88 mm day in the 41.25N 28.75E cell is the **largest in that cell since 1950** (`scripts/era5_event_check.py`, `scripts/event_2026_return_period.py`). With the v0.3 factors, the model gives this ERA5 field return periods of 20–115 years by cell, and the illustrative portfolio would lose about EUR 14 m (about 1-in-70 years on the reference curve). But the 186 mm reported for 24 hours (MGM press release, 15 Oct 2026) would be a 650–770-year value at the Bosphorus cells in the model. Part of that gap is expected, because the wettest of dozens of gauges is rarer than a single point; part suggests the tail on the Bosphorus is still too light. ERA5's error depends on the storm type: long, organised systems (2026) are resolved much better than stationary convective cells (2009).
 
 ### Finding 2: storms are smaller than the v0.2 footprint assumed
 
@@ -107,7 +107,7 @@ The model is fit for **portfolio steering and scenario analysis**. It is not yet
 | Spatial dependence | Partly validated | Radar 2009 (22 km), gauges (34–51 km) |
 | 2009 rainfall footprint | Validated | 18 stations + MGM hourly gauges |
 | Rainfall → depth | Calibrated on 2009 only | Point-wise MAE 0.40 m at 4 sites; depth check for Oct 2026 needs AKOM and Sentinel-1 data |
-| Hazard on an independent event | Tested | Oct 2026: ERA5 within 1.2–3.2× of reported totals; model return periods 20–115 yr (ERA5 field) |
+| Hazard on an independent event | Tested | Oct 2026: ERA5 within 1.4–3.3× of reported totals; model return periods 20–115 yr (ERA5 field) |
 | Depth → damage | Not validated for Turkey | JRC Europe curves |
 | Exposure | Illustrative portfolio; OSM gaps filled in the Ayamama basin only | Microsoft footprints |
 
@@ -229,6 +229,9 @@ Full list in the paper.
 * Yucel, I. (2015). Assessment of a flash flood event using different precipitation datasets. *Natural Hazards* 79, 1889–1911. doi:10.1007/s11069-015-1938-9
 * Nobre, A.D. et al. (2011). Height Above the Nearest Drainage. *J. Hydrol.* 404, 13–29. doi:10.1016/j.jhydrol.2011.03.051
 * Aznar-Siguan, G., Bresch, D.N. (2019). CLIMADA v1. *GMD* 12, 3085–3097. doi:10.5194/gmd-12-3085-2019
+* İBB (2026). Statement of 15 October 2026 with AKOM Meteoroloji station totals for 13–15 October; full text reproduced by [ForInvest](https://www.foreks.com/haber/detay/6ad0b9d0390e6a39236ff436/FRKS/tr/ibb-istanbul-da-son-84-yilin-en-yuksek-yagis-rekoruna-ulasildi-15-10-26/) and [Evrensel/ANKA](https://www.evrensel.net/haber/6005085/son-84-yilin-en-yuksek-seviyesi-istanbula-aylik-toplam-yagisin-4-kati-bir-gunde-dustu).
+* İstanbul Valiliği (2026). Statement of 14 October 2026 (2,518 emergency calls, 1,277 flooding reports), [Anadolu Ajansı wire](https://www.foreks.com/haber/detay/6acfc24524008d7d43743184/AA/tr/istanbul-da-saganak-nedeniyle-2-bin-518-ihbar-yapildi-14-10-26/).
+* MGM (2026). İstanbul'da Afet Koordinasyon Toplantısı Düzenlendi, press release, 15 October 2026. [https://www.mgm.gov.tr/FILES/Haberler/2026/15-10-afet.pdf](https://www.mgm.gov.tr/FILES/Haberler/2026/15-10-afet.pdf); October 2026 areal precipitation report: [https://mgm.gov.tr/veridegerlendirme/yagis-raporu.aspx?b=a](https://mgm.gov.tr/veridegerlendirme/yagis-raporu.aspx?b=a)
 * EIOPA (2022). Application guidance on running climate change materiality assessment and using climate change scenarios in the ORSA.
 
 ## Licence and attribution

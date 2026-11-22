@@ -1,8 +1,11 @@
 station,cell,reported_mm,era5_13_15oct_mm,ratio
-Beykoz,41.25N 29.00E,273.1,85.2,3.21
-Sariyer,41.25N 29.00E,208.1,85.2,2.44
-Eyupsultan,41.00N 29.00E,202.8,87.9,2.31
-Arnavutkoy,41.25N 28.75E,125.9,107.0,1.18
-Buyukcekmece,41.00N 28.50E,119.7,88.6,1.35
-ITU Maslak,41.00N 29.00E,175.2,87.9,1.99
-Sisli,41.00N 29.00E,141.0,87.9,1.6
+Beykoz,41.25N 29.00E,277.1,85.2,3.25
+Sariyer,41.25N 29.00E,211.8,85.2,2.49
+Eyupsultan,41.00N 29.00E,203.9,87.9,2.32
+Arnavutkoy,41.25N 28.75E,146.1,107.0,1.37
+Buyukcekmece,41.00N 28.50E,137.1,88.6,1.55
+ITU Maslak,41.00N 29.00E,191.8,87.9,2.18
+Sisli,41.00N 29.00E,147.4,87.9,1.68
+Olimpiyat,41.00N 28.75E,142.0,87.4,1.63
+AKOM Kagithane,41.00N 29.00E,135.5,87.9,1.54
+Cekmekoy Omerli,41.00N 29.25E,131.2,72.6,1.81
