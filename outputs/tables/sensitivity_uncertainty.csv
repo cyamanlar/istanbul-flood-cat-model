@@ -1,0 +1,27 @@
+case,AAL_m,L200_m,TVaR995_m
+"Base (50,000 years)",1.19,21.9,39.8
+ERA5 bias factors at P5 (x0.89),0.67,16.6,28.4
+ERA5 bias factors at P95 (x1.13),2.1,29.3,57.2
+"Correlation length 20 km (radar, 2009 event)",1.18,17.9,31.8
+Correlation length 60 km (v0.2 value),1.19,24.0,44.6
+v0.2 uniform bias 1.8 (40 km),2.07,29.1,56.1
+"v0.2 settings (uniform 1.8, 60 km)",2.08,32.2,63.7
+"Drainage capacity, flood-prone zone 56 mm (-20%)",2.25,27.0,44.5
+"Drainage capacity, flood-prone zone 84 mm (+20%)",0.67,17.4,35.1
+Depth coefficient -20%,0.84,17.1,34.0
+Depth coefficient +20%,1.55,26.8,45.5
+Portfolio realisation 1,1.63,36.5,58.9
+Portfolio realisation 2,1.74,41.2,66.7
+Portfolio realisation 3,1.88,39.7,64.9
+Portfolio realisation 4,1.59,34.1,57.5
+Portfolio realisation 5,1.5,35.7,58.9
+"Hazard sampling, seed 2027",1.17,21.3,36.9
+"Hazard sampling, seed 2028",1.16,20.9,34.8
+"Hazard sampling, seed 2029",1.21,22.5,38.9
+Rainfall cap 300 mm/day,1.17,21.6,36.8
+Rainfall cap 600 mm/day,1.19,21.9,40.1
+Cell-by-cell GEV shape (no regional shape),1.12,20.9,35.7
+No secondary uncertainty,1.18,21.5,39.3
+Secondary uncertainty CV 0.8,1.2,22.7,41.4
+Correlation length 30 km,1.18,20.2,36.0
+Correlation length 120 km,1.19,27.7,50.7

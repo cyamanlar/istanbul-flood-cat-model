@@ -1,0 +1,23 @@
+comparison,station,station_mm,era5_mm,era5_measure,ratio
+MGM all-time daily record,Bahcekoy,145.8,73.78,1-in-75 yr ERA5 return level (record length ~75 yrs),1.98
+MGM all-time daily record,Florya,112.5,78.98,1-in-75 yr ERA5 return level (record length ~75 yrs),1.42
+MGM all-time daily record,Kumkoy,179.4,73.78,1-in-75 yr ERA5 return level (record length ~75 yrs),2.43
+MGM all-time daily record,Kirecburnu,128.9,73.78,1-in-75 yr ERA5 return level (record length ~75 yrs),1.75
+MGM all-time daily record,Sile,199.3,78.01,1-in-75 yr ERA5 return level (record length ~75 yrs),2.55
+8-9 Sept 2009 event,Canta,55.8,35.51,ERA5 2009 annual maximum in station cell,1.57
+8-9 Sept 2009 event,Catalca,204.4,42.84,ERA5 2009 annual maximum in station cell,4.77
+8-9 Sept 2009 event,Kamiloba,96.6,32.06,ERA5 2009 annual maximum in station cell,3.01
+8-9 Sept 2009 event,Hadimkoy,114.2,27.84,ERA5 2009 annual maximum in station cell,4.1
+8-9 Sept 2009 event,Terkos,79.8,38.39,ERA5 2009 annual maximum in station cell,2.08
+8-9 Sept 2009 event,Olimpiyat,175.2,27.84,ERA5 2009 annual maximum in station cell,6.29
+8-9 Sept 2009 event,Florya,78.6,27.84,ERA5 2009 annual maximum in station cell,2.82
+8-9 Sept 2009 event,Aksaray,15.0,28.8,ERA5 2009 annual maximum in station cell,0.52
+8-9 Sept 2009 event,Akom,38.0,28.8,ERA5 2009 annual maximum in station cell,1.32
+8-9 Sept 2009 event,Kumkoy,66.0,31.36,ERA5 2009 annual maximum in station cell,2.1
+8-9 Sept 2009 event,Sariyer,65.4,31.36,ERA5 2009 annual maximum in station cell,2.09
+8-9 Sept 2009 event,Buyukada,42.2,26.29,ERA5 2009 annual maximum in station cell,1.61
+8-9 Sept 2009 event,Cavusbasi,23.4,29.49,ERA5 2009 annual maximum in station cell,0.79
+8-9 Sept 2009 event,Kartal,26.6,29.49,ERA5 2009 annual maximum in station cell,0.9
+8-9 Sept 2009 event,Samandira,15.2,29.49,ERA5 2009 annual maximum in station cell,0.52
+8-9 Sept 2009 event,Omerli,6.8,29.49,ERA5 2009 annual maximum in station cell,0.23
+8-9 Sept 2009 event,Sile,13.2,33.3,ERA5 2009 annual maximum in station cell,0.4

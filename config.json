@@ -1,0 +1,88 @@
+{
+  "random_seed": 2026,
+  "n_sim_years": 50000,
+  "hazard": {
+    "source": "auto",
+    "era5_annual_max_csv": "data/hazard/era5_annual_max.csv",
+    "bias_correction": {
+      "method": "zonal, matched-period IBB dam gauges 2011-2023 (scripts/bias_matched_period.py)",
+      "europe": 1.69,
+      "asia": 1.41,
+      "europe_max_lon": 28.75,
+      "asia_min_lon": 29.25,
+      "p05_multiplier": 0.89,
+      "p95_multiplier": 1.13
+    },
+    "bias_multiplier": 1.0,
+    "corr_length_km": 40,
+    "climate_scaling_per_degC": 0.07,
+    "regional_shape": true,
+    "max_daily_rain_mm": 400
+  },
+  "exposure": {
+    "total_tiv_eur": 5000000000,
+    "n_locations": 1500
+  },
+  "vulnerability": {
+    "prone": {
+      "drainage_capacity_mm": 70,
+      "coef_m_per_mm": 0.008
+    },
+    "standard": {
+      "drainage_capacity_mm": 140,
+      "coef_m_per_mm": 0.0015
+    },
+    "secondary_uncertainty_cv": 0.4
+  },
+  "financial": {
+    "deductible_pct_tiv": 0.01,
+    "limit_pct_tiv": 1.0
+  },
+  "climate_scenarios_degC": [
+    0.0,
+    1.5,
+    2.5
+  ],
+  "building_level": {
+    "data_dir": "data/raw",
+    "files": {
+      "buildings": "ayamama_buildings.geojson",
+      "waterways": "ayamama_waterways.geojson",
+      "river_systems": "ayamama_river_systems.geojson",
+      "dem_archive": "rasters_COP30.tar.gz",
+      "dem_tif": "output_hh.tif",
+      "buildings_gapfill": "ayamama_buildings_ms_gapfill.geojson"
+    },
+    "exposure": {
+      "min_footprint_m2": 20,
+      "cost_eur_per_m2": {
+        "residential": 650,
+        "commercial": 850,
+        "industrial": 550
+      },
+      "contents_ratio": {
+        "residential": 0.3,
+        "commercial": 0.5,
+        "industrial": 0.7
+      },
+      "basement_share": 0.25
+    },
+    "flood_zone": {
+      "search_radius_m": 1500,
+      "head_loss_m_per_km": 3.0,
+      "stream_factor": {
+        "main": 1.0,
+        "river": 0.6,
+        "canal": 0.6,
+        "stream": 0.25,
+        "drain": 0.15,
+        "ditch": 0.15
+      }
+    },
+    "hazard": {
+      "stage_m_per_mm": 0.03,
+      "stage_threshold_mm": 40
+    },
+    "n_sim_years": 10000
+  }
+}

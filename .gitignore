@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.cdsapirc
+.env
+data/external/
+cds_key.txt

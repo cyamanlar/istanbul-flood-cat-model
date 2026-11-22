@@ -1,0 +1,45 @@
+{
+  "hazard_data": "ERA5",
+  "n_buildings": 145978,
+  "TIV_EUR": 159797150391.85574,
+  "buildings_can_flood": 22793,
+  "AAL_EUR": 108627816.24907544,
+  "PML_EUR_by_RP": {
+    "10": 290295919.747735,
+    "25": 573314158.9420024,
+    "50": 820388791.3218654,
+    "100": 1183372818.1894703,
+    "200": 1538178855.2931757,
+    "250": 1662582299.5790877,
+    "500": 2114223516.1463819
+  },
+  "TVaR_99_5_EUR": 2241471339.0731974,
+  "validation_2009": {
+    "ayamama_catchment_rain_2009_mm": 102.93734376718429,
+    "ayamama_main_stage_m": 1.8881203130155286,
+    "ayamama_flooded_buildings": 1577,
+    "ayamama_depth_median_m": 0.7537974009115185,
+    "ayamama_depth_p90_m": 1.6831823268049546,
+    "ayamama_depth_max_m": 1.8808897670478906,
+    "observed_depth_range_m_excl_blockage": [
+      0.85,
+      2.19
+    ],
+    "all_flooded_buildings": 4514,
+    "event_loss_eur": 550500970.9362235,
+    "ayamama_event_loss_eur": 336205095.4289628,
+    "reported_economic_loss_2009_usd": [
+      70000000.0,
+      175000000.0
+    ],
+    "pointwise_model_median_m_MAE": 0.4,
+    "pointwise_model_median_m_RMSE": 0.47,
+    "pointwise_model_median_m_bias": -0.38,
+    "pointwise_model_p90_m_MAE": 0.46,
+    "pointwise_model_p90_m_RMSE": 0.5,
+    "pointwise_model_p90_m_bias": 0.27,
+    "pointwise_model_max_m_MAE": 0.63,
+    "pointwise_model_max_m_RMSE": 0.71,
+    "pointwise_model_max_m_bias": 0.47
+  }
+}

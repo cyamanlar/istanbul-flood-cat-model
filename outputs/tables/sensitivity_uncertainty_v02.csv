@@ -1,0 +1,22 @@
+case,AAL_m,L200_m,TVaR995_m
+"Base (50,000 years)",2.08,32.2,63.7
+Correlation length 30 km,2.08,27.1,51.9
+Correlation length 120 km,2.09,37.1,71.6
+"Drainage capacity, flood-prone zone 56 mm (-20%)",3.78,38.3,69.4
+"Drainage capacity, flood-prone zone 84 mm (+20%)",1.22,26.3,57.9
+Depth coefficient -20%,1.48,24.9,55.5
+Depth coefficient +20%,2.71,38.3,70.9
+No secondary uncertainty,2.08,31.8,63.1
+Secondary uncertainty CV 0.8,2.1,33.1,64.9
+"Hazard sampling, seed 2027",2.07,32.7,59.6
+"Hazard sampling, seed 2028",2.05,31.3,54.5
+"Hazard sampling, seed 2029",2.12,33.0,59.7
+Portfolio realisation 1,2.79,49.2,85.6
+Portfolio realisation 2,2.95,56.7,95.6
+Portfolio realisation 3,3.22,55.8,94.6
+Portfolio realisation 4,2.93,50.5,86.4
+Portfolio realisation 5,2.59,48.3,85.5
+Rainfall cap 300 mm/day,2.04,31.5,56.1
+Rainfall cap 600 mm/day,2.09,32.1,64.8
+Cell-by-cell GEV shape (no regional shape),2.0,31.0,56.0
+"10,000 years",2.08,32.2,53.8

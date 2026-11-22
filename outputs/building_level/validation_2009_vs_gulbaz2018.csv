@@ -1,0 +1,6 @@
+location,observed_depth_m,lat,lon,note,model_main_channel_stage_m,model_p90_building_depth_m
+Ikitelli OSB,0.85,41.0699,28.8051,,1.89,1.68
+Ataturk,0.87,41.0504,28.7974,watermark ~1 m,1.89,1.68
+Inonu,1.58,41.0234,28.7965,,1.89,1.68
+Evren,2.19,41.0379,28.8195,watermark ~2 m,1.89,1.68
+Cobancesme,13.75,40.9997,28.8226,flow blocked at highway culvert (watermark 12-14 m) - not representable without hydraulics,1.89,1.68

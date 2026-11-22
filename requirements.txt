@@ -1,0 +1,9 @@
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+# optional - real ERA5 data
+# cdsapi>=0.7
+# xarray>=2023.1
+# netCDF4>=1.6
+# optional - CLIMADA cross-check (install via conda-forge)
+# climada>=5.0

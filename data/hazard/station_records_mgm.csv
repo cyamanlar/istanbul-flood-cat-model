@@ -1,0 +1,6 @@
+station,lon,lat,record_daily_mm,record_date,source
+Bahcekoy,28.98,41.17,145.8,2006-09-24,MGM official climate statistics (Istanbul)
+Florya,28.79,40.98,112.5,1942-10-04,MGM official climate statistics (Istanbul)
+Kumkoy,29.04,41.25,179.4,2009-09-13,MGM official climate statistics (Istanbul)
+Kirecburnu,29.05,41.15,128.9,2017-09-28,MGM official climate statistics (Istanbul)
+Sile,29.60,41.17,199.3,1985-10-17,MGM official climate statistics (Istanbul)
