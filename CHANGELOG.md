@@ -2,6 +2,14 @@
 
 Dates are when the change was made. Each entry says what changed, why and with which evidence.
 
+## Unreleased (v0.4) – 24 November 2026 – atmospheric model, more events, regional climate models
+
+Following an advisor's suggestions: couple an atmospheric model with urban hydrology, test on more extreme events, use climate simulations for projections.
+
+* `wrf/`: WRF-ARW re-run package (9/3/1 km, optional 333 m over Ayamama; ERA5 boundaries; Noah-MP with urban canopy), cases in `wrf/events.csv`, scripts to download ERA5, run WPS/WRF, compare WRF rainfall with stations and pass it through the cat model and the Ayamama building module. No WRF results yet.
+* `scripts/extreme_event_catalogue.py`: the 25 largest independent ERA5 rainfall days 1950–2026 over Istanbul (`outputs/tables/extreme_event_catalogue.csv`). 8–9 September 2009 is not among them, which shows how ERA5 misses convective storms.
+* `scripts/cordex_change_factors.py`: EURO-CORDEX EUR-11 change factors for annual-maximum daily rainfall per cell (three GCM-RCM pairs, 2041–2070 and 2071–2100 vs 1981–2010) to replace the fixed 7 %/°C scaling. Not run yet.
+
 ## v0.3.1 – 22 November 2026 – sources for October 2026
 
 * **October 2026 station totals now come from one official statement.** Before: values from two news articles with different time windows (dunya.com, cnbce.com). Now: the İBB statement of 15 October 2026 (AKOM Meteoroloji data), for one event total, 7 → 10 stations (Olimpiyat, AKOM Kâğıthane and Çekmeköy Ömerli added, with coordinates from the IBB AWOS list). ERA5 ratio 1.2–3.2× → **1.4–3.3×**; return periods and the portfolio loss do not use these values and are unchanged.

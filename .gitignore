@@ -5,3 +5,7 @@ __pycache__/
 .env
 data/external/
 cds_key.txt
+
+# WRF case data and output (large; keep on the server)
+wrf/era5/
+wrf/cases/
