@@ -11,7 +11,7 @@
  end_hour    = @EH@, @EH@, @EH@, @EH@,
  interval_seconds         = 10800,
  input_from_file          = .true., .true., .true., .true.,
- history_interval         = 180,  60,  60,  60,
+ history_interval         = 180, 180, 180, 180,
  frames_per_outfile       = 1000, 1000, 1000, 1000,
  restart                  = .false.,
  restart_interval         = 1440,

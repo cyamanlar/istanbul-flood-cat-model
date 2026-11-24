@@ -3,16 +3,15 @@
 #   bash 02_run_case.sh ist2009            # 3 domains (9, 3, 1 km)
 #   MAX_DOM=4 NP=32 bash 02_run_case.sh ist2009   # add 333 m over Ayamama
 # Uses your own WPS/WRF builds; set paths if they differ:
-#   WPS_DIR (default ~/WPS-4.6.0.11), WRF_DIR (default: first ~/WRF*/ with run/real.exe), GEOG (default $WPS_DIR/../WPS_GEOG)
+#   WPS_DIR (default ~/WPS-4.6.0.11), WRF_DIR (default ~/WRF-4.6.0-ARW), GEOG (default /home/havakalite/WPS_GEOG)
 # Runs in the background with nohup; progress: tail -f cases/<case>/run.log
 set -euo pipefail
 CASE=$1
 HERE=$(cd "$(dirname "$0")" && pwd)
-MAX_DOM=${MAX_DOM:-3}; NP=${NP:-16}
+MAX_DOM=${MAX_DOM:-3}; NP=${NP:-32}
 WPS_DIR=${WPS_DIR:-$HOME/WPS-4.6.0.11}
-WRF_DIR=${WRF_DIR:-$(dirname "$(ls -d $HOME/WRF*/run/real.exe 2>/dev/null | head -1)" 2>/dev/null)}
-WRF_DIR=${WRF_DIR%/run}
-GEOG=${GEOG:-$(cd "$WPS_DIR/.." && pwd)/WPS_GEOG}
+WRF_DIR=${WRF_DIR:-$HOME/WRF-4.6.0-ARW}
+GEOG=${GEOG:-/home/havakalite/WPS_GEOG}
 for f in "$WPS_DIR/geogrid.exe" "$WPS_DIR/ungrib.exe" "$WPS_DIR/metgrid.exe" "$WRF_DIR/run/real.exe" "$WRF_DIR/run/wrf.exe"; do
   [ -x "$f" ] || { echo "missing: $f  (set WPS_DIR / WRF_DIR)"; exit 1; }; done
 [ -d "$GEOG" ] || { echo "missing static data: $GEOG  (set GEOG=...)"; exit 1; }
@@ -48,6 +47,7 @@ sed -e "s|@MAX_DOM@|$MAX_DOM|" -e "s|@RUN_HOURS@|$H|" \
     "$HERE/namelist.input.template" > namelist.input
 mpirun -np "$NP" ./real.exe; grep -q "SUCCESS COMPLETE REAL" rsl.error.0000
 mpirun -np "$NP" ./wrf.exe;  grep -q "SUCCESS COMPLETE WRF"  rsl.error.0000
+du -sh "$D/wrf"/wrfout_* "$D/wrf"/rain10min_* 2>/dev/null | tail -3
 echo "DONE $CASE $(date)"
 }
 export -f run; export HERE D ERA START END MAX_DOM NP WPS_DIR WRF_DIR GEOG

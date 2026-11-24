@@ -18,11 +18,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.ins
 
 ap = argparse.ArgumentParser(); ap.add_argument("case"); ap.add_argument("--dom", type=int, default=3)
 ap.add_argument("--spinup", type=int, default=12); a = ap.parse_args()
-files = sorted(glob.glob(f"wrf/cases/{a.case}/wrf/wrfout_d0{a.dom}_*"))
-if not files: raise SystemExit(f"no wrfout_d0{a.dom} files in wrf/cases/{a.case}/wrf/")
+# rain every 10 min (small rain10min_* files) if present, else the 3-hourly wrfout history
+files = sorted(glob.glob(f"wrf/cases/{a.case}/wrf/rain10min_d0{a.dom}_*")) or sorted(glob.glob(f"wrf/cases/{a.case}/wrf/wrfout_d0{a.dom}_*"))
+if not files: raise SystemExit(f"no rain10min_d0{a.dom} or wrfout_d0{a.dom} files in wrf/cases/{a.case}/wrf/")
 ds = xr.open_mfdataset(files, combine="nested", concat_dim="Time") if len(files) > 1 else xr.open_dataset(files[0])
 times = pd.to_datetime([t.decode() if isinstance(t, bytes) else str(t) for t in ds["Times"].values.astype(str)], format="%Y-%m-%d_%H:%M:%S")
 acc = (ds["RAINNC"] + ds["RAINC"]).values                                  # accumulated mm
+max10 = np.diff(acc, axis=0).max(0) if (times[1] - times[0]) <= pd.Timedelta(minutes=10) else None
+full = times.minute == 0                                                    # keep full hours
+acc, times = acc[full], times[full]
 lat = ds["XLAT"].isel(Time=0).values; lon = ds["XLONG"].isel(Time=0).values
 keep = times >= times[0] + pd.Timedelta(hours=a.spinup)
 acc, times = acc[keep] - acc[keep][0], times[keep]
@@ -85,6 +89,7 @@ cdf = pd.DataFrame(crow); cdf.to_csv(f"{out}/cells.csv", index=False)
 
 summary = dict(case=a.case, domain=a.dom, n_hours=int(len(times)), domain_max_daily_mm=round(float(dmax.max()), 1),
                domain_max_1h_mm=round(float(max1h.max()), 1),
+               domain_max_10min_mm=round(float(max10.max()), 1) if max10 is not None else None,
                station_median_ratio=round(float(sv.ratio_nearest.median()), 2) if len(sv) else None)
 try:
     from src import exposure, financial
