@@ -1,0 +1,11 @@
+{
+  "case": "ist2009",
+  "domain": 3,
+  "n_hours": 49,
+  "domain_max_daily_mm": 208.1,
+  "domain_max_1h_mm": 98.9,
+  "domain_max_10min_mm": 29.8,
+  "station_median_ratio": 0.17,
+  "portfolio_loss_eur_m": 0.0,
+  "portfolio_loss_return_period_yr": 3
+}

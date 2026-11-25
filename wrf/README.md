@@ -1,5 +1,7 @@
 # WRF event re-runs (v0.4, in progress)
 
+**Status (25 Nov 2026):** 2009 run done (results below); October 2026 run under way.
+
 Goal: replace reanalysis rainfall with convection-permitting WRF rainfall for single storms, and pass it through the model's
 hydrology and building-level modules. This answers three review points: an atmospheric model coupled to urban hydrology,
 testing on more extreme events, and (with `scripts/cordex_change_factors.py`) climate projections from regional models.
@@ -57,3 +59,16 @@ Outputs go to `outputs/wrf/<case>/`. wrfout files and ERA5 GRIB stay out of git 
 * Building depths in Ayamama against the five published 2009 locations (point-wise MAE, as for the station replay).
 
 Next (hydraulics): drive an EPA SWMM model of Ayamama with the 10-minute WRF rainfall, then HEC-RAS 2D.
+
+## First result: 2009
+
+![WRF 2009](../outputs/wrf/ist2009/wrf_2009_rain_vs_stations.png)
+
+| | Observed (stations) | WRF 1 km |
+|---|---|---|
+| Çatalca, 8+9 Sep | 240 mm | 124 mm at the grid point, 180 mm within 10 km |
+| Olimpiyat, 9 Sep | 175 mm | 9 mm (26 mm within 10 km) |
+| Ayamama basin, 8+9 Sep | 107–225 mm at the nearby stations (Florya, Hadımköy, Olimpiyat) | 20 mm basin mean |
+| Peak intensities | – | 208 mm/day, 99 mm/h, 30 mm/10 min |
+
+WRF gets the 8 September Çatalca storm (which ERA5 missed) but moves the 9 September convective core away from Ayamama, as earlier NWP studies of this event also found. The rainfall intensity is far better than ERA5; the location is not reliable for a single run. Planned: re-initialisation closer to 9 September and a small physics/initial-time ensemble.

@@ -40,6 +40,7 @@ out = f"outputs/wrf/{a.case}"; os.makedirs(out, exist_ok=True)
 
 def at(lo, la, field, rad_km=0.0):
     dk = np.hypot((lat - la) * 111.0, (lon - lo) * 111.0 * np.cos(np.radians(la)))
+    if dk.min() > 3.0: return np.nan                     # station outside this domain
     if rad_km <= 0: return float(field.ravel()[dk.argmin()])
     return float(field[dk <= rad_km].max())
 
@@ -58,7 +59,7 @@ elif a.case == "ist2026":
     for _, s in st.iterrows():
         rows.append(dict(station=s.station, day="event total", obs_mm=s.reported_mm, wrf_nearest_mm=round(at(s.lon, s.lat, tot), 1),
                          wrf_best10km_mm=round(at(s.lon, s.lat, tot, 10), 1)))
-sv = pd.DataFrame(rows)
+sv = pd.DataFrame(rows).dropna(subset=["wrf_nearest_mm"]) if rows else pd.DataFrame()
 if len(sv):
     sv["ratio_nearest"] = (sv.wrf_nearest_mm / sv.obs_mm).round(2); sv.to_csv(f"{out}/stations.csv", index=False)
 

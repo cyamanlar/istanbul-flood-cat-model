@@ -1,0 +1,7 @@
+{
+  "case": "ist2009",
+  "ayamama_rain_mm": 17.7,
+  "flooded_buildings": 10,
+  "event_loss_eur_m": 0.4,
+  "pointwise_MAE_m": 1.37
+}
