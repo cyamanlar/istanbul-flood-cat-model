@@ -8,7 +8,7 @@
 set -euo pipefail
 CASE=$1
 HERE=$(cd "$(dirname "$0")" && pwd)
-MAX_DOM=${MAX_DOM:-3}; NP=${NP:-32}
+MAX_DOM=${MAX_DOM:-3}; NP=${NP:-24}
 WPS_DIR=${WPS_DIR:-$HOME/WPS-4.6.0.11}
 WRF_DIR=${WRF_DIR:-$HOME/WRF-4.6.0-ARW}
 GEOG=${GEOG:-/home/havakalite/WPS_GEOG}
@@ -21,9 +21,11 @@ D=$HERE/cases/$CASE; mkdir -p "$D/wps" "$D/wrf"
 ERA=$HERE/era5/$CASE; ls "$ERA"/*.grib >/dev/null 2>&1 || { echo "no ERA5 GRIB in $ERA: run python 01_download_era5_for_wrf.py $CASE"; exit 1; }
 
 run() {
-set -x
+set -euxo pipefail
 # ---------- WPS ----------
 cd "$D/wps"
+if ls met_em.d0${MAX_DOM}.* >/dev/null 2>&1 && grep -q "Successful completion" metgrid.log 2>/dev/null; then
+  echo "WPS already done for $CASE, skipping"; else
 sed -e "s|@MAX_DOM@|$MAX_DOM|" -e "s|@START@|$START|g" -e "s|@END@|$END|g" -e "s|@GEOG@|$GEOG|" \
     "$HERE/namelist.wps.template" > namelist.wps
 ln -sf "$WPS_DIR"/geogrid.exe "$WPS_DIR"/ungrib.exe "$WPS_DIR"/metgrid.exe .
@@ -33,9 +35,14 @@ ln -sf "$WPS_DIR/ungrib/Variable_Tables/Vtable.ECMWF" Vtable
 "$WPS_DIR/link_grib.csh" "$ERA"/*.grib
 ./ungrib.exe > ungrib.out 2>&1; grep -q "Successful completion" ungrib.log
 ./metgrid.exe > metgrid.out 2>&1; grep -q "Successful completion" metgrid.log
+fi
 # ---------- WRF ----------
 cd "$D/wrf"
-for f in "$WRF_DIR"/run/*; do ln -sf "$f" .; done
+# link only the model's tables and executables, never other users' inputs or outputs
+find . -maxdepth 1 -type l -delete
+for f in "$WRF_DIR"/run/*; do
+  case "$(basename "$f")" in wrfout*|wrfinput*|wrfbdy*|wrfrst*|wrflow*|namelist*|rsl.*|met_em*|*.log|*.nc|*.out|nohup*) ;; *) ln -sf "$f" . ;; esac
+done
 rm -f namelist.input; ln -sf "$D"/wps/met_em.d0* .
 cp "$HERE/rain_fields.txt" .
 SY=${START:0:4}; SM=${START:5:2}; SD=${START:8:2}; SH=${START:11:2}
@@ -47,9 +54,9 @@ sed -e "s|@MAX_DOM@|$MAX_DOM|" -e "s|@RUN_HOURS@|$H|" \
     "$HERE/namelist.input.template" > namelist.input
 mpirun -np "$NP" ./real.exe; grep -q "SUCCESS COMPLETE REAL" rsl.error.0000
 mpirun -np "$NP" ./wrf.exe;  grep -q "SUCCESS COMPLETE WRF"  rsl.error.0000
-du -sh "$D/wrf"/wrfout_* "$D/wrf"/rain10min_* 2>/dev/null | tail -3
+du -sh "$D/wrf"/wrfout_* "$D/wrf"/rain10min_* 2>/dev/null | tail -3 || true
 echo "DONE $CASE $(date)"
 }
-export -f run; export HERE D ERA START END MAX_DOM NP WPS_DIR WRF_DIR GEOG
+export -f run; export CASE HERE D ERA START END MAX_DOM NP WPS_DIR WRF_DIR GEOG
 nohup bash -c run > "$D/run.log" 2>&1 &
 echo "started $CASE in background (pid $!). Follow: tail -f $D/run.log"
