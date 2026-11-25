@@ -30,7 +30,7 @@ sed -e "s|@MAX_DOM@|$MAX_DOM|" -e "s|@START@|$START|g" -e "s|@END@|$END|g" -e "s
     "$HERE/namelist.wps.template" > namelist.wps
 ln -sf "$WPS_DIR"/geogrid.exe "$WPS_DIR"/ungrib.exe "$WPS_DIR"/metgrid.exe .
 ln -sfn "$WPS_DIR/geogrid" geogrid; ln -sfn "$WPS_DIR/metgrid" metgrid
-ln -sf "$WPS_DIR/ungrib/Variable_Tables/Vtable.ECMWF" Vtable
+rm -f Vtable; cp "$HERE/Vtable.ECMWF.ERA5" Vtable   # own copy: the shared WPS Vtable.ECMWF on this server holds GFS codes
 ./geogrid.exe > geogrid.out 2>&1; grep -q "Successful completion" geogrid.log
 "$WPS_DIR/link_grib.csh" "$ERA"/*.grib
 ./ungrib.exe > ungrib.out 2>&1; grep -q "Successful completion" ungrib.log
