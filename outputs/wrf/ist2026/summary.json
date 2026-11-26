@@ -1,0 +1,11 @@
+{
+  "case": "ist2026",
+  "domain": 3,
+  "n_hours": 73,
+  "domain_max_daily_mm": 305.0,
+  "domain_max_1h_mm": 107.6,
+  "domain_max_10min_mm": 34.8,
+  "station_median_ratio": 1.01,
+  "portfolio_loss_eur_m": 7.49,
+  "portfolio_loss_return_period_yr": 23
+}

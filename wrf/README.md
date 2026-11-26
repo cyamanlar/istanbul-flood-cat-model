@@ -1,6 +1,6 @@
 # WRF event re-runs (v0.4, in progress)
 
-**Status (25 Nov 2026):** 2009 run done (results below); October 2026 run under way.
+**Status (26 Nov 2026):** 2009 and October 2026 runs done (results below); 2009 re-initialisation and four extra events queued.
 
 Goal: replace reanalysis rainfall with convection-permitting WRF rainfall for single storms, and pass it through the model's
 hydrology and building-level modules. This answers three review points: an atmospheric model coupled to urban hydrology,
@@ -72,3 +72,15 @@ Next (hydraulics): drive an EPA SWMM model of Ayamama with the 10-minute WRF rai
 | Peak intensities | – | 208 mm/day, 99 mm/h, 30 mm/10 min |
 
 WRF gets the 8 September Çatalca storm (which ERA5 missed) but moves the 9 September convective core away from Ayamama, as earlier NWP studies of this event also found. The rainfall intensity is far better than ERA5; the location is not reliable for a single run. Planned: re-initialisation closer to 9 September and a small physics/initial-time ensemble.
+
+## Second result: October 2026
+
+![WRF 2026](../outputs/wrf/ist2026/wrf_2026_rain_vs_stations.png)
+
+Event totals 13–15 October at the 10 IBB/AKOM stations: median WRF/observed 1.01 (0.58–1.75); Beykoz 277 mm observed vs 227 mm WRF, Sarıyer 212 vs 265 mm. ERA5 was 1.4–3.3 times too low. Peaks 305 mm/day, 108 mm/h, 35 mm/10 min (the largest totals, up to 580 mm, are over the Sea of Marmara).
+
+## Queue for the remaining cases
+
+```bash
+nohup bash 05_run_queue.sh ist2009r ist2017 ist2011 ist2015 ist2016 > queue.log 2>&1 &
+```

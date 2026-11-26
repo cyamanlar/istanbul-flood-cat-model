@@ -58,5 +58,6 @@ du -sh "$D/wrf"/wrfout_* "$D/wrf"/rain10min_* 2>/dev/null | tail -3 || true
 echo "DONE $CASE $(date)"
 }
 export -f run; export CASE HERE D ERA START END MAX_DOM NP WPS_DIR WRF_DIR GEOG
+if [ "${FOREGROUND:-0}" = "1" ]; then bash -c run > "$D/run.log" 2>&1; echo "finished $CASE: $(tail -n 1 "$D/run.log")"; exit 0; fi
 nohup bash -c run > "$D/run.log" 2>&1 &
 echo "started $CASE in background (pid $!). Follow: tail -f $D/run.log"

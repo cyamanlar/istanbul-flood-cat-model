@@ -45,7 +45,7 @@ def at(lo, la, field, rad_km=0.0):
     return float(field[dk <= rad_km].max())
 
 rows = []
-if a.case == "ist2009":
+if a.case.startswith("ist2009"):
     st = pd.read_csv("data/hazard/stations_2009_sep.csv")
     for _, s in st.iterrows():
         for dd, col in [("2009-09-08", "obs_8sep_mm"), ("2009-09-09", "obs_9sep_mm")]:
@@ -53,7 +53,7 @@ if a.case == "ist2009":
             if f is None: continue
             rows.append(dict(station=s.station, day=dd, obs_mm=s[col], wrf_nearest_mm=round(at(s.lon, s.lat, f), 1),
                              wrf_best10km_mm=round(at(s.lon, s.lat, f, 10), 1)))
-elif a.case == "ist2026":
+elif a.case.startswith("ist2026"):
     st = pd.read_csv("data/events/istanbul_2026-10_stations.csv")
     tot = acc[-1]
     for _, s in st.iterrows():

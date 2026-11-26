@@ -1,0 +1,7 @@
+{
+  "case": "ist2026",
+  "ayamama_rain_mm": 120.1,
+  "flooded_buildings": 5613,
+  "event_loss_eur_m": 804.8,
+  "pointwise_MAE_m": null
+}

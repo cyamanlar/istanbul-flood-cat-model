@@ -1,0 +1,11 @@
+station,day,obs_mm,wrf_nearest_mm,wrf_best10km_mm,ratio_nearest
+Beykoz,event total,277.1,226.6,290.7,0.82
+Sariyer,event total,211.8,265.4,290.7,1.25
+Eyupsultan,event total,203.9,118.8,252.0,0.58
+Arnavutkoy,event total,146.1,255.0,295.6,1.75
+Buyukcekmece,event total,137.1,111.0,127.5,0.81
+ITU Maslak,event total,191.8,157.9,290.7,0.82
+Sisli,event total,147.4,144.9,279.0,0.98
+Olimpiyat,event total,142.0,147.3,264.9,1.04
+AKOM Kagithane,event total,135.5,162.5,290.7,1.2
+Cekmekoy Omerli,event total,131.2,158.4,251.1,1.21
