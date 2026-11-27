@@ -1,0 +1,3 @@
+case,day,wrf_max_daily,wrf_max_at,wrf_max_1h,wrf_max_10min,era5_max_cell,era5_max_at,wrf_cellmean_at_era5max,cell_corr,wrf_area_ge50mm_km2
+ist2017,2017-07-18,435.3,41.36N 29.91E,231.3,70.3,100.3,41.0N 29.5E,68.1,0.2,8178
+ist2011,2011-08-11,206.4,41.69N 28.57E,88.2,34.6,125.8,41.5N 29.25E,58.5,0.65,6208
